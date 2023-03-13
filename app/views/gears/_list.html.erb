@@ -1,0 +1,23 @@
+<div id="lists">
+  <% @gears.each do |gear| %>
+
+    <div id="<%= dom_id gear %>">
+      <p>
+      <strong>Name:</strong>
+       <%= gear.name %>
+      </p>
+      <p>
+      <strong>Category:</strong>
+       <%= gear.category %>
+      </p>
+      <p>
+      <strong>Price:</strong>
+       <%= gear.price %>
+      </p>
+    </div>
+
+    <p>
+      <%= link_to "Show this gear", gear %>
+    </p>
+  <% end %>
+</div>
