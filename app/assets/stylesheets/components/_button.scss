@@ -1,0 +1,52 @@
+.btn_black {
+  background-color: $light-black;
+  color: white;
+  border: 1px solid $light-black;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+.btn_white {
+  background-color: white;
+  color: $light-black;
+  border: 1px solid $light-black;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+.btn_sm {
+  border-radius: 20px;
+  height: 30px;
+  width: 100px;
+}
+
+.btn_lg {
+  border-radius: 10px;
+  height: 40px;
+  width: 300px;
+}
+
+.btn_none {
+  color: $light-black;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: $light-black;
+    text-decoration: underline;
+  }
+}
+
+.btn_underline {
+  color: $light-black;
+  text-decoration: underline;
+  padding:0;
+  // transition: all 0.2s ease-in-out;
+  // &:hover {
+  //   color: $light-black;
+  //   text-decoration: underline;
+  // }
+}
