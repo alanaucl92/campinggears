@@ -1,5 +1,7 @@
 class GearsController < ApplicationController
 
+
+
   def index
     @gears = policy_scope(Gear)
   end
@@ -47,6 +49,6 @@ class GearsController < ApplicationController
   private
 
   def gear_params
-    params.require(:gear).permit(:name, :brand, :price, :category, :description)
+    params.require(:gear).permit(:name, :brand, :price, :category, :description, :photo)
   end
 end

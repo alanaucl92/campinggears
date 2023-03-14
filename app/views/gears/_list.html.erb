@@ -3,7 +3,8 @@
   <% @gears.each do |gear| %>
     <div class="col-md-4 p-2">
       <div class="card border-0" style="width: 18rem;">
-        <img src="https://www.rei.com/media/2f9c8c47-299b-4a4c-aa05-b10fbf303691.jpg" class="card-img-top mt-2" alt="...">
+        <%= cl_image_tag gear.photo.key, class:"card-img-top mt-2" %>
+        <%# <img src="https://www.rei.com/media/2f9c8c47-299b-4a4c-aa05-b10fbf303691.jpg" class="card-img-top mt-2" alt="..."> %>
         <div class="card-body">
           <div class="d-flex justify-content-between">
             <p><strong><%= gear.brand %></strong></p>

@@ -5,7 +5,7 @@
     <%= f.input :brand %>
     <%= f.input :price %>
     <%= f.input :description %>
-
+    <%= cl_image_tag @gear.photo.key, height: 300, width: 400, crop: :fill %>
     <%= f.input :category, as: :select, collection: ["Sleeping Bag", "Backpack", "Cup", "Clothes", "Tent"]%>
   </div>
 
