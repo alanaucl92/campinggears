@@ -15,7 +15,9 @@
        <%= gear.price %>
       </p>
 
-      <%= cl_image_tag("vj6szkzbuwqehizfbr7s",
+      <%= cl_image_tag gear.photo.key, height: 300, width: 400, crop: :fill %>
+
+      <%# <%= cl_image_tag("vj6szkzbuwqehizfbr7s",
       width: 400, height: 300, crop: :fill) %>
     </div>
 

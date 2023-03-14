@@ -5,4 +5,5 @@ class Gear < ApplicationRecord
   validates :price, presence: true
   belongs_to :user
   has_many :reservations
+  has_one_attached :photo
 end
