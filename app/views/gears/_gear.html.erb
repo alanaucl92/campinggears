@@ -24,4 +24,6 @@
     <%= @gear.user.email %>
   </p>
 
+  <%= cl_image_tag @gear.photo.key, height: 300, width: 400, crop: :fill %>
+
 </div>
