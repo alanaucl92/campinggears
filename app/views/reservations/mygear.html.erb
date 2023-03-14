@@ -1,6 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>List of Reservations</h1>
 <div id="reserve_lists">
   <% @reservations.each do |reservation| %>
-
+    <% if reservation.gear.user == current_user %>
     <div id="<%= dom_id reservation %>">
       <p>
       <strong>Name:</strong>
@@ -23,5 +26,9 @@
        <%= reservation.total_price %>
       </p>
     </div>
+    <% end %>
   <% end %>
 </div>
+
+
+<%= link_to "Back to gears", gears_path %>

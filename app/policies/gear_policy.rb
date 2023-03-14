@@ -24,4 +24,8 @@ class GearPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def check?
+    record.user != user
+  end
 end
