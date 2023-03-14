@@ -50,3 +50,8 @@
   //   text-decoration: underline;
   // }
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: $light-black !important;
+  border-color: $light-black !important;
+}
