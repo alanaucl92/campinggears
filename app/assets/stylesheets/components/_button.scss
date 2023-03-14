@@ -1,7 +1,7 @@
 .btn_black {
-  background-color: $light-black;
+  background-color: $button-black;
   color: white;
-  border: 1px solid $light-black;
+  border: 1px solid $button-black;
   &:hover {
     background-color: black;
     color: white;
@@ -51,7 +51,40 @@
   // }
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color: $light-black !important;
-  border-color: $light-black !important;
+.btn-primary {
+  background-color: $button-black !important;
+  border-color: none !important;
+  --bs-btn-border-color: none !important;
+  --bs-btn-bg:$button-black !important;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: black !important;
+  border-color: none !important;
+  --bs-btn-border-color: none !important;
+  --bs-btn-bg:$button-black !important;
+}
+
+.btn-secondary {
+  background-color: white !important;
+  border-color: black !important;
+  color: black;
+  --bs-btn-border-color: black !important;
+  --bs-btn-bg:white !important;
+}
+
+.btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+  background-color: black !important;
+  border-color: none !important;
+  color:white;
+  --bs-btn-border-color: none !important;
+  --bs-btn-bg:$button-black !important;
+}
+
+.link_none {
+  color:$light-black;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }

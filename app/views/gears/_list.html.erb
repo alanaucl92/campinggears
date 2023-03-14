@@ -10,9 +10,8 @@
             <p><strong><%= gear.brand %></strong></p>
             <p style="color: grey">$<%= gear.price %> per day</p>
           </div>
-        <p class="card-text"><%= gear.name %></p>
-        <%# <a href="#" class="btn btn-primary">Reserve</a> %>
-        <%= link_to "Show detail", gear %>
+        <p class="card-text" style="white-space:nowrap;"><%= gear.name %></p>
+        <%= link_to "Check it out now!", gear, class: "btn btn-primary" %>
         </div>
       </div>
     </div>
