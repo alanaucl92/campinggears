@@ -1,0 +1,31 @@
+<div id="reserve_lists">
+  <% @reservations.each do |reservation| %>
+
+    <div id="<%= dom_id reservation %>">
+      <p>
+      <strong>Name:</strong>
+       <%= reservation.gear.name %>
+      </p>
+      <p>
+      <strong>Owner Email:</strong>
+       <%= reservation.gear.user.email %>
+      </p>
+      <p>
+      <strong>Name:</strong>
+       <%= reservation.reserve_from %>
+      </p>
+      <p>
+      <strong>Category:</strong>
+       <%= reservation.reserve_to %>
+      </p>
+      <p>
+      <strong>Price:</strong>
+       <%= reservation.total_price %>
+      </p>
+    </div>
+
+    <%# <p>
+      <%= link_to "Show this reservation", reservation %>
+    </p> %>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<h1>New reservation</h1>
+
+<%= simple_form_for [@gear, @reservation] do |f| %>
+  <%= f.input :reserve_from %>
+  <%= f.input :reserve_to %>
+  <%= f.input :total_price %>
+  <%= f.input :reserve_status %>
+  <%= f.input :payment_status %>
+  <%= f.submit "Submit reservation", class: "btn btn-primary" %>
+<% end %>
