@@ -7,5 +7,6 @@
 <div>
   <%= link_to "Edit this gear", edit_gear_path(@gear) %>
   <%= link_to "Back to gears", gears_path %>
+  <%= link_to "Make a reservation", new_gear_reservation_path(@gear) %>
   <%= button_to "Destroy this gear", @gear, method: :delete if policy(@gear).destroy? %>
 </div>

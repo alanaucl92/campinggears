@@ -4,4 +4,5 @@ class Gear < ApplicationRecord
   validates :category, presence: true
   validates :price, presence: true
   belongs_to :user
+  has_many :reservations
 end
