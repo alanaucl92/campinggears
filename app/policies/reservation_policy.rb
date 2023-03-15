@@ -5,10 +5,14 @@ class ReservationPolicy < ApplicationPolicy
     #   scope.all
     # end
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
   def create?
+    true
+  end
+
+  def mygear?
     true
   end
 
