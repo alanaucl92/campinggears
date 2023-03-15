@@ -10,22 +10,29 @@
       <strong>Owner Email:</strong>
        <%= reservation.gear.user.email %>
       </p>
+      <strong>Requester Email:</strong>
+       <%= reservation.user.email %>
+      </p>
       <p>
-      <strong>Name:</strong>
+      <strong>Reserved From:</strong>
        <%= reservation.reserve_from %>
       </p>
       <p>
-      <strong>Category:</strong>
+      <strong>Reserved To:</strong>
        <%= reservation.reserve_to %>
       </p>
       <p>
       <strong>Price:</strong>
        <%= reservation.total_price %>
       </p>
-    </div>
+      <strong>Reserve Status:</strong>
+       <%= reservation.reserve_status %>
+      </p>
+      <strong>Payment Status:</strong>
+       <%= reservation.payment_status %>
+      </p>
 
-    <%# <p>
-      <%= link_to "Show this reservation", reservation %>
-    </p> %>
+      <%= link_to "Edit this reservation", edit_reservation_path(reservation) if reservation.reserve_status == "Reserved"%>
+    </div>
   <% end %>
 </div>

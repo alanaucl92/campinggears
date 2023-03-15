@@ -1,0 +1,43 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>List of Reservations</h1>
+<div id="reserve_lists">
+  <% @reservations.each do |reservation| %>
+    <% if reservation.gear.user == current_user %>
+      <div id="<%= dom_id reservation %>">
+        <p>
+        <strong>Name:</strong>
+        <%= reservation.gear.name %>
+        </p>
+        <p>
+        <strong>Owner Email:</strong>
+        <%= reservation.gear.user.email %>
+        </p>
+        <strong>Requester Email:</strong>
+        <%= reservation.user.email %>
+        </p>
+        <p>
+        <strong>Reserved From:</strong>
+        <%= reservation.reserve_from %>
+        </p>
+        <p>
+        <strong>Reserved To:</strong>
+        <%= reservation.reserve_to %>
+        </p>
+        <p>
+        <strong>Price:</strong>
+        <%= reservation.total_price %>
+        </p>
+        <strong>Reserve Status:</strong>
+        <%= reservation.reserve_status %>
+        </p>
+        <strong>Payment Status:</strong>
+        <%= reservation.payment_status %>
+      </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<%= link_to "Back to gears", gears_path %>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :gears, only: [:index, :create, :new, :show, :edit, :update, :destroy] do
     resources :reservations, only: [:create, :new]
   end
-  resources :reservations, only: [:index]
+
+  resources :reservations, only: [:index, :edit, :update]
   get "reservations/mygear", to: "reservations#mygear"
 end
