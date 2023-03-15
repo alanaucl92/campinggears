@@ -12,6 +12,10 @@ class ReservationPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record.user == user
+  end
+
   def mygear?
     true
   end

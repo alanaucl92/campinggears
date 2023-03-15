@@ -1,14 +1,12 @@
+<%# <%= simple_form_for(@reservation) do |f| %>
 
-<h1>New reservation</h1>
-
-<%= simple_form_for [@gear, @reservation] do |f| %>
+<%= simple_form_for [@reservation] do |f| %>
   <%= f.error_notification %>
   <%= f.input :reserve_from, error: "Reserve from date should be before Reserve to date" %>
   <%= f.input :reserve_to %>
+  <%= f.input :reserve_status, as: :select, collection: ["Reserved", "Cancelled"]%>
   <%# <%= f.input :total_price %>
   <%# <%= f.input :reserve_status, as: :select, collection: ["Reserved", "Cancelled"]%>
   <%# <%= f.input :payment_status, as: :select, collection: ["Outstanding", "Paid"]%>
-  <%= f.submit "Submit reservation", class: "btn btn-primary" %>
+  <%= f.submit "Submit Edit", class: "btn btn-primary" %>
 <% end %>
-
-<%= link_to "Back to the Gear", gear_path(@gear) %>
