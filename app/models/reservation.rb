@@ -5,7 +5,13 @@ class Reservation < ApplicationRecord
   validates :reserve_to, presence: true
   validates :reserve_status, presence: true, inclusion: { in: %w(Reserved Cancelled) }
   validates :payment_status, presence: true, inclusion: { in: %w(Outstanding Paid) }
+  validate :date_cannot_be_in_the_past
 
+  def date_cannot_be_in_the_past
+    if reserve_from.present? && reserve_from < Date.today
+      errors.add(:reserve_from, "can't be in the past")
+    end
+  end
 
   # private
 

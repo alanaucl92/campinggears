@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
     authorize @reservation
     if @reservation.save!
       # flash[:success] = "Reservation Saved"
-      redirect_to gear_path(@gear), notice: "Reservation saved"
+      redirect_to gears_path, notice: "Reservation saved"
     else
       # flash.now[:alert] = "Reservation Failed"
       render :new, status: :unprocessable_entity, alert: "Reservation failed"
@@ -53,7 +53,7 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:reserve_from, :reserve_to, :gear_id, :user_id, :total_price, :reserve_status, :payment_status)
+    params.require(:reservation).permit(:reserve_from, :reserve_to, :reserve_status, :payment_status)
   end
 
 end
