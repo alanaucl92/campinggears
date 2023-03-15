@@ -1,16 +1,31 @@
-<%= simple_form_for(@gear) do |f| %>
+<%= simple_form_for(@gear, html: { class: "row g-3" }, wrapper: :vertical_form) do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :brand %>
-    <%= f.input :price %>
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file %>
-
-    <%= f.input :category, as: :select, collection: ["Sleeping Bag", "Backpack", "Cup", "Clothes", "Tent"]%>
+  <div class="col-md-6">
+    <%= f.input :name, label: "Name", placeholder: "Enter gear name", class: "form-control" %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="col-md-6">
+    <%= f.input :brand, label: "Brand", placeholder: "Enter gear brand", class: "form-control" %>
   </div>
+
+  <div class="col-md-6">
+    <%= f.input :price, label: "Price", placeholder: "Enter gear price", class: "form-control" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= f.input :category, label: "Category", as: :select, collection: ["Sleeping Bag", "Backpack", "Cup", "Clothes", "Tent"], prompt: "Select a category", class: "form-select" %>
+  </div>
+
+  <div class="col-md-12">
+    <%= f.input :description, label: "Description", placeholder: "Enter gear description", as: :text, input_html: { rows: 3 }, class: "form-control" %>
+  </div>
+
+  <div class="col-md-12">
+    <%= f.input :photo, label: "Photo", as: :file, class: "form-control" %>
+  </div>
+
+  <div class="col-12">
+    <%= f.button :submit, class: "btn btn-primary px-5" %>
+  </div>
+
 <% end %>

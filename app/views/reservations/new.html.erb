@@ -1,13 +1,13 @@
+<%= javascript_include_tag 'application' %>
 
 <h1>New reservation</h1>
 
-<%= simple_form_for [@gear, @reservation] do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :reserve_from, error: "Reserve from date should be before Reserve to date" %>
-  <%= f.input :reserve_to %>
-  <%# <%= f.input :total_price %>
-  <%# <%= f.input :reserve_status, as: :select, collection: ["Reserved", "Cancelled"]%>
-  <%# <%= f.input :payment_status, as: :select, collection: ["Outstanding", "Paid"]%>
+<%= simple_form_for [@gear, @reservation], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :reserve_from, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :reserve_to, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+  <%= f.input :total_price %>
+  <%= f.input :reserve_status %>
+  <%= f.input :payment_status %>
   <%= f.submit "Submit reservation", class: "btn btn-primary" %>
 <% end %>
 
