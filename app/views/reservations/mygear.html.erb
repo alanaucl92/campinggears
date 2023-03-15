@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>List of Reservations</h1>
+<h1>List of My Rentals</h1>
 <div id="reserve_lists">
   <% @reservations.each do |reservation| %>
     <% if reservation.gear.user == current_user %>

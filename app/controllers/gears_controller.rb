@@ -24,6 +24,23 @@ class GearsController < ApplicationController
   def show
     @gear = Gear.find(params[:id])
     authorize @gear
+
+    @reservation = Reservation.new()
+
+    # @reservation.gear = @gear
+    # @reservation.user = current_user
+
+    # @reservation.total_price = (@reservation.reserve_to - @reservation.reserve_from) * @reservation.gear.price
+    # @reservation.reserve_status = "Reserved"
+    # @reservation.payment_status = "Outstanding"
+    # authorize @reservation
+    # if @reservation.save!
+    #   # flash[:success] = "Reservation Saved"
+    #   redirect_to gear_path(@gear), notice: "Reservation saved"
+    # else
+    #   # flash.now[:alert] = "Reservation Failed"
+    #   render :new, status: :unprocessable_entity, alert: "Reservation failed"
+    # end
   end
 
   def edit
@@ -49,5 +66,9 @@ class GearsController < ApplicationController
 
   def gear_params
     params.require(:gear).permit(:name, :brand, :price, :category, :description, :photo)
+  end
+
+  def reservation_params
+    params.require(:reservation).permit(:reserve_from, :reserve_to)
   end
 end
