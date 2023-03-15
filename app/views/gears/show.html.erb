@@ -1,12 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render "gears/gear" , locals: {gear:@gear }%>
-<%# <%= cl_image_tag("vj6szkzbuwqehizfbr7s",
-      width: 400, height: 300, crop: :fill) %>
+<div class="row m-5", id="gear_card">
+  <%= cl_image_tag @gear.photo.key, class:"col-6", height: 300, width: 500 %>
+  <div class="mx-3 col-5">
+    <h5><strong> <%= @gear.brand %> </strong></h5>
+    <h3><strong> <%= @gear.name %> </strong></h3>
+    <h6><strong> $<%= @gear.price %> per day </strong></h6>
 
-<div>
-  <%= link_to "Edit this gear", edit_gear_path(@gear) %>
-  <%= link_to "Back to gears", gears_path %>
-  <%= link_to "Make a reservation", new_gear_reservation_path(@gear) %>
-  <%= button_to "Destroy this gear", @gear, method: :delete if policy(@gear).destroy? %>
+    <div>
+      <%= link_to "Reserve Now", new_gear_reservation_path(@gear), class: "btn btn-primary btn-block w-100 mt-3" if @gear.user != current_user %>
+      <%= link_to "Edit", edit_gear_path(@gear), class: "btn btn-primary btn-block w-100 mt-3" if policy(@gear).edit? %>
+      <%= button_to "Remove", @gear, class: "btn btn-secondary btn-block w-100 mt-2", method: :delete if policy(@gear).destroy? %>
+    </div>
+
+    <p class="mt-3 mb-2"><strong>Category:</strong> <%= @gear.category %></p>
+
+    <p class="my-0">
+      <strong>Description:</strong>
+      <%= @gear.description %>
+    </p>
+  </div>
 </div>

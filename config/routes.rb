@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :reservations, only: [:create, :new]
   end
   resources :reservations, only: [:index]
+  get "reservations/mygear", to: "reservations#mygear"
 end

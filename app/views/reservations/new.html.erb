@@ -1,8 +1,10 @@
+<%= javascript_include_tag 'application' %>
+
 <h1>New reservation</h1>
 
-<%= simple_form_for [@gear, @reservation] do |f| %>
-  <%= f.input :reserve_from %>
-  <%= f.input :reserve_to %>
+<%= simple_form_for [@gear, @reservation], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :reserve_from, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :reserve_to, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
   <%= f.input :total_price %>
   <%= f.input :reserve_status %>
   <%= f.input :payment_status %>

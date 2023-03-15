@@ -1,15 +1,3 @@
-<%= simple_form_for(@gear) do |f| %>
+<h1>Edit the gear</h1>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :brand %>
-    <%= f.input :price %>
-    <%= f.input :description %>
-    <%= cl_image_tag @gear.photo.key, height: 300, width: 400, crop: :fill %>
-    <%= f.input :category, as: :select, collection: ["Sleeping Bag", "Backpack", "Cup", "Clothes", "Tent"]%>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<%= render "form", gear: @gear %>
