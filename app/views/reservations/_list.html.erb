@@ -1,38 +1,33 @@
-<div id="reserve_lists">
+
   <% @reservations.each do |reservation| %>
-
-    <div id="<%= dom_id reservation %>">
-      <p>
-      <strong>Name:</strong>
-       <%= reservation.gear.name %>
-      </p>
-      <p>
-      <strong>Owner Email:</strong>
-       <%= reservation.gear.user.email %>
-      </p>
-      <strong>Requester Email:</strong>
-       <%= reservation.user.email %>
-      </p>
-      <p>
-      <strong>Reserved From:</strong>
-       <%= reservation.reserve_from %>
-      </p>
-      <p>
-      <strong>Reserved To:</strong>
-       <%= reservation.reserve_to %>
-      </p>
-      <p>
-      <strong>Price:</strong>
-       <%= reservation.total_price %>
-      </p>
-      <strong>Reserve Status:</strong>
-       <%= reservation.reserve_status %>
-      </p>
-      <strong>Payment Status:</strong>
-       <%= reservation.payment_status %>
-      </p>
-
-      <%= link_to "Edit this reservation", edit_reservation_path(reservation) if reservation.reserve_status == "Reserved"%>
+   <div class="card mb-2">
+    <div class="card-body" id="<%= dom_id(reservation) %>">
+      <h5 class="card-title"><%= reservation.gear.name %></h5>
+      <%# <p class="card-text">
+        <strong>Owner Email:</strong> <%= reservation.gear.user.email %>
+      <%# </p> %>
+      <%# <p class="card-text">
+        <strong>Requester Email:</strong> <%= reservation.user.email %>
+      <%# </p> %>
+      <div class="d-flex justify-content-between">
+        <p class="card-text">
+          <strong>Reserved Period:</strong> <%= reservation.reserve_from %> to <%= reservation.reserve_to %>
+        </p>
+        <p class="card-text">
+          <strong>Total Price:</strong> $<%= reservation.total_price %>
+        </p>
+      </div>
+      <div class="d-flex justify-content-between">
+        <p class="card-text">
+          <strong>Reservation Status:</strong> <%= reservation.reserve_status %>
+        </p>
+        <p class="card-text">
+          <strong>Payment Status:</strong> <%= reservation.payment_status %>
+        </p>
+      </div>
+      <% if reservation.reserve_status == "Reserved" %>
+        <%= link_to "Edit this reservation", edit_reservation_path(reservation), class: "btn btn-primary float-end" %>
+      <% end %>
     </div>
+  </div>
   <% end %>
-</div>
