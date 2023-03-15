@@ -1,9 +1,8 @@
 class GearsController < ApplicationController
 
-
-
   def index
     @gears = policy_scope(Gear)
+    @reservations= Reservation.all
   end
 
   def new

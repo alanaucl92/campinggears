@@ -1,0 +1,146 @@
+[33mcommit 5611fbd10c986af2d711202df6fb9562e2e36b3b[m[33m ([m[1;36mHEAD -> [m[1;32mreservation-update[m[33m, [m[1;31morigin/reservation-update[m[33m)[m
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Tue Mar 14 22:10:57 2023 -0300
+
+    updated front
+
+[33mcommit ed01eafd49914e342433090632488929a9c47f44[m
+Merge: 1ebdaaa 26f7225
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Tue Mar 14 18:56:45 2023 -0300
+
+    Merge branch 'master' of https://github.com/alanaucl92/campinggears
+
+[33mcommit 1ebdaaa5bb2b4b11e6982b422073449907fab64a[m
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Tue Mar 14 18:29:17 2023 -0300
+
+    reservationupdate
+
+[33mcommit 26f7225189ea18fe653e7a0849c00345db57e9c9[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 897248f 2e189bd
+Author: alanaucl92 <44743412+alanaucl92@users.noreply.github.com>
+Date:   Tue Mar 14 18:27:08 2023 -0300
+
+    Merge pull request #6 from alanaucl92/update-gear-frontend
+    
+    updated show and index of gear
+
+[33mcommit 2e189bd2356c525495a3ef509b6c3e64a4ce932b[m
+Author: Mandy Chan <mychanab@gmail.com>
+Date:   Tue Mar 14 18:18:54 2023 -0300
+
+    updated show and index of gear
+
+[33mcommit 897248fcb4c6953ea0f059af8bc22953747f4c05[m[33m ([m[1;31mheroku/master[m[33m)[m
+Merge: a919ad6 78e4ba8
+Author: alanaucl92 <44743412+alanaucl92@users.noreply.github.com>
+Date:   Tue Mar 14 15:42:52 2023 -0300
+
+    Merge pull request #5 from alanaucl92/update-gear-frontend
+    
+    Update gear frontend
+
+[33mcommit 78e4ba825faaa0740010b6c42deeaba98e410301[m
+Merge: 4ea8452 a919ad6
+Author: Mandy Chan <mychanab@gmail.com>
+Date:   Tue Mar 14 15:41:00 2023 -0300
+
+    updated home photo and seed
+
+[33mcommit a919ad6c407d9954d339e5b59038a364016667ca[m
+Merge: 37f9edc dcacd84
+Author: Mandy <45789279+mychanab@users.noreply.github.com>
+Date:   Tue Mar 14 15:08:29 2023 -0300
+
+    Merge pull request #4 from alanaucl92/reservation
+    
+    photo upload feature
+
+[33mcommit 4ea84524ee46cfc9847c8db4cfb72396beb1c791[m
+Author: Mandy Chan <mychanab@gmail.com>
+Date:   Tue Mar 14 15:07:06 2023 -0300
+
+    updated partial home page
+
+[33mcommit dcacd84ce50ab5a0dcd387e4cee8045bdccbdfcd[m[33m ([m[1;31morigin/reservation[m[33m, [m[1;32mreservation[m[33m)[m
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Tue Mar 14 15:03:18 2023 -0300
+
+    photo upload feature
+
+[33mcommit 37f9edc077b1de492ac706dc4ea5bab96a66bcec[m
+Merge: b999cb2 5e6e0e1
+Author: Mandy <45789279+mychanab@users.noreply.github.com>
+Date:   Tue Mar 14 14:12:59 2023 -0300
+
+    Merge pull request #3 from alanaucl92/reservation
+    
+    added reservation model and seeds
+
+[33mcommit 5e6e0e1ff0df178b616ca034681e747e01c4839d[m
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Tue Mar 14 14:10:42 2023 -0300
+
+    added reservation model and seeds
+
+[33mcommit b999cb2814a348bb226efa3bd057902f85ed18c7[m
+Merge: 2381fb1 45d116f
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Tue Mar 14 11:25:52 2023 -0300
+
+    merged with Frontend
+
+[33mcommit 45d116f89baf21dc227eb05d1c251f47e46427fd[m
+Merge: cf6e1c6 12f713b
+Author: alanaucl92 <44743412+alanaucl92@users.noreply.github.com>
+Date:   Tue Mar 14 11:17:18 2023 -0300
+
+    Merge pull request #2 from alanaucl92/navbar_design
+    
+    updated navbar and sign up/in form
+
+[33mcommit 2381fb14d09f52e5e8b3fcb0faf6b4198de8f750[m
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Tue Mar 14 10:51:55 2023 -0300
+
+    Core functions for gears
+
+[33mcommit 12f713bb15bd10a2c7ef91d0bdb00b43fbabc232[m
+Author: Mandy Chan <mychanab@gmail.com>
+Date:   Tue Mar 14 10:47:21 2023 -0300
+
+    updated navbar and sign up/in form
+
+[33mcommit f2b86c8e670709665b2ae89104b9ed1dcb6c503b[m
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Mon Mar 13 17:58:50 2023 -0300
+
+    add
+
+[33mcommit 3e5979730ee03834a7520e96723d3014294dc168[m
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Mon Mar 13 17:40:29 2023 -0300
+
+    add dotenv-rails
+
+[33mcommit cf6e1c61d42cfa28d95ab31af8c95a335160dd72[m
+Merge: 5492af4 0129710
+Author: Mandy <45789279+mychanab@users.noreply.github.com>
+Date:   Mon Mar 13 15:07:23 2023 -0300
+
+    Merge pull request #1 from alanaucl92/alan-branch
+    
+    created user model
+
+[33mcommit 0129710cfff961f071e820219f3029b63326b8ed[m[33m ([m[1;31morigin/alan-branch[m[33m, [m[1;32malan-branch[m[33m)[m
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Mon Mar 13 15:04:00 2023 -0300
+
+    created user model
+
+[33mcommit 5492af46a1335cc5f84a1b85ed88e017e455f7b4[m
+Author: Alan Au <alanaucl92@gmail.com>
+Date:   Mon Mar 13 14:17:01 2023 -0300
+
+    Initial commit with minimal template from https://github.com/lewagon/rails-templates

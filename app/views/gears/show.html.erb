@@ -5,7 +5,7 @@
       width: 400, height: 300, crop: :fill) %>
 
 <div>
-  <%= link_to "Edit this gear", edit_gear_path(@gear) if policy(@gear).destroy?%>
+  <%= link_to "Edit this gear", edit_gear_path(@gear) if policy(@gear).edit?%>
   <%= link_to "Back to gears", gears_path %>
   <%= link_to "Make a reservation", new_gear_reservation_path(@gear) if @gear.user != current_user%>
   <%= button_to "Destroy this gear", @gear, method: :delete if policy(@gear).destroy? %>

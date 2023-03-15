@@ -6,8 +6,9 @@ class ReservationsController < ApplicationController
   end
 
   def mygear
-    @reservations = policy_scope(Reservation)
-    authorize @reservations
+    @reservations  = Reservation.all
+    authorize Reservation
+    # skip_authorization
   end
 
   def create
@@ -15,12 +16,13 @@ class ReservationsController < ApplicationController
     @reservation.gear = @gear
     @reservation.user = current_user
     @reservation.total_price = (@reservation.reserve_to - @reservation.reserve_from) * @reservation.gear.price
+    @reservation.reserve_status = "Reserved"
+    @reservation.payment_status = "Outstanding"
     authorize @reservation
     if @reservation.save!
       # flash[:success] = "Reservation Saved"
       redirect_to gear_path(@gear), notice: "Reservation saved"
     else
-
       # flash.now[:alert] = "Reservation Failed"
       render :new, status: :unprocessable_entity, alert: "Reservation failed"
     end
@@ -30,6 +32,20 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     authorize @reservation
   end
+
+  def edit
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+  end
+
+  def update
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+    @reservation.update(reservation_params)
+    redirect_to reservations_path
+  end
+
+
 
   private
   def set_gear
