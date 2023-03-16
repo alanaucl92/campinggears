@@ -6,6 +6,7 @@ class Reservation < ApplicationRecord
   validates :reserve_status, presence: true, inclusion: { in: %w(Reserved Cancelled) }
   validates :payment_status, presence: true, inclusion: { in: %w(Outstanding Paid) }
   validate :date_cannot_be_in_the_past
+  paginates_per 5
 
   def date_cannot_be_in_the_past
     if reserve_from.present? && reserve_from < Date.today

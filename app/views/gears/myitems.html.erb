@@ -3,3 +3,4 @@
   <%= link_to "Create new gear", new_gear_path, class: "btn_underline mt-2 mx-3"%>
 </div>
 <%= render "gears/list", lists: @gears %>
+<%= paginate @gears %>
