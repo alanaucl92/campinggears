@@ -1,3 +1,5 @@
-<p style="color: green"><%= notice %></p>
-<h2>All your gears!</h2>
+<div class="d-flex justify-content-between">
+  <h2 class="mt-3">Your gear list for rental</h2>
+  <%= link_to "Create new gear", new_gear_path, class: "btn_underline mt-2 mx-3"%>
+</div>
 <%= render "gears/list", lists: @gears %>

@@ -1,12 +1,26 @@
 <%# <%= simple_form_for(@reservation) do |f| %>
+<h2 class="mt-3">Update your reservation here</h2>
 
-<%= simple_form_for [@reservation] do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :reserve_from, error: "Reserve from date should be before Reserve to date" %>
-  <%= f.input :reserve_to %>
-  <%= f.input :reserve_status, as: :select, collection: ["Reserved", "Cancelled"]%>
+<div class="row p-1">
+  <div class="col-md-4">
+    <%= simple_form_for [@reservation], data: { controller: 'flatpickr' } do |f| %>
+      <div class="d-flex">
+        <%= f.input :reserve_from, as: :string, label: "Start Date", input_html: { data: { flatpickr_target: "startTime" } } %>
+        <span class="mx-2"></span>
+        <%= f.input :reserve_to, as: :string, label: "End Date", input_html: { data: { flatpickr_target: "endTime" } } %>
+      </div>
+
+      <%= f.input :reserve_status, as: :select, collection: ["Reserved", "Cancelled"] %>
+
+      <%= f.submit "Update", class: "btn btn_secondary" %>
+    <% end %>
+  </div>
+</div>
+
+  <%# <%= f.error_notification %>
+  <%# <%= f.input :reserve_from, error: "Reserve from date should be before Reserve to date" %>
+  <%# <%= f.input :reserve_to %>
+  <%# <%= f.input :reserve_status, as: :select, collection: ["Reserved", "Cancelled"]%>
   <%# <%= f.input :total_price %>
   <%# <%= f.input :reserve_status, as: :select, collection: ["Reserved", "Cancelled"]%>
   <%# <%= f.input :payment_status, as: :select, collection: ["Outstanding", "Paid"]%>
-  <%= f.submit "Submit Edit", class: "btn btn-primary" %>
-<% end %>
