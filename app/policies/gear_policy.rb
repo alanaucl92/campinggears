@@ -17,6 +17,10 @@ class GearPolicy < ApplicationPolicy
     true
   end
 
+  def myitems?
+    true
+  end
+
   def update?
     record.user == user
   end

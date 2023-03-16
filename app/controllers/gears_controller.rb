@@ -2,6 +2,7 @@ class GearsController < ApplicationController
 
   def index
     @gears = policy_scope(Gear)
+
     @reservations= Reservation.all
   end
 
@@ -60,6 +61,11 @@ class GearsController < ApplicationController
     authorize @gear
     @gear.destroy
     redirect_to gears_path, status: :see_other
+  end
+
+  def myitems
+    @gears = Gear.where(user: current_user)
+    authorize Gear
   end
 
   private

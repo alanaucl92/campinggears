@@ -6,7 +6,8 @@ class ReservationsController < ApplicationController
   end
 
   def mygear
-    @reservations  = Reservation.all
+    # @reservations  = Reservation.all
+    @reservations = Reservation.joins(:gear).where(gear: {user: current_user})
     authorize Reservation
     # skip_authorization
   end
@@ -15,7 +16,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.gear = @gear
     @reservation.user = current_user
-    @reservation.total_price = (@reservation.reserve_to - @reservation.reserve_from) * @reservation.gear.price
+
+    if @reservation.reserve_from != nil && @reservation.reserve_to != nil
+      @reservation.total_price = (@reservation.reserve_to - @reservation.reserve_from) * @reservation.gear.price
+    end
+
     @reservation.reserve_status = "Reserved"
     @reservation.payment_status = "Outstanding"
     authorize @reservation

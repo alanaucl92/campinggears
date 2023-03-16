@@ -5,7 +5,8 @@ class ReservationPolicy < ApplicationPolicy
     #   scope.all
     # end
     def resolve
-      scope.where(user: user)
+      # scope.where(user: user)
+      scope.all
     end
   end
   def create?
