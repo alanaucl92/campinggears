@@ -1,0 +1,22 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination a, .pagination span {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Style the current page link */
+.pagination .current {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}

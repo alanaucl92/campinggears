@@ -18,4 +18,5 @@ class Gear < ApplicationRecord
       throw :abort
     end
   end
+  paginates_per 6
 end

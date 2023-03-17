@@ -11,7 +11,8 @@ class GearsController < ApplicationController
     end
 
 
-    @reservations= Reservation.all
+    @reservations = Reservation.all
+    @gears = Gear.page params[:page]
   end
 
   def new
@@ -83,6 +84,7 @@ class GearsController < ApplicationController
   def myitems
     @gears = Gear.where(user: current_user)
     authorize Gear
+    @gears = Gear.where(user: current_user).page params[:page]
   end
 
   private

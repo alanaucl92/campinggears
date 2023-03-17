@@ -9,9 +9,10 @@
 
 
 <p style="color: green"><%= notice %></p>
-<h2>Welcome and pick your gears here!</h2>
+<h2 class="mt-3">Welcome and pick your gears here!</h2>
 <%= render "gears/list", lists: @gears %>
-<%= link_to "All gears you uploaded!", gears_myitems_path%>
+<%= paginate @gears %>
+<%# <%= link_to "All gears you uploaded!", gears_myitems_path%>
 <%# <%= link_to "New gear", new_gear_path%>
 <%# <%= link_to "All of my Reservations", reservations_path%>
 <%# <%= link_to "All of my Gears' Reservations", reservations_mygear_path(current_user)%>

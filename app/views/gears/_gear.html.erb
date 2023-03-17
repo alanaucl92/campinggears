@@ -6,9 +6,9 @@
     <h6><strong> $<%= @gear.price %> per day </strong></h6>
 
     <div>
-      <%= link_to "Make a reservation", new_gear_reservation_path(@gear), class: "btn btn-primary btn-block w-100 mt-3" %>
-      <%= link_to "Edit", edit_gear_path(@gear), class: "btn btn-primary btn-block w-100 mt-3" %>
-      <%= button_to "Remove the gear", @gear, class: "btn btn-secondary btn-block w-100 mt-2", method: :delete if policy(@gear).destroy? %>
+      <%= link_to "Make a reservation", new_gear_reservation_path(@gear), class: "btn btn_primary btn-block w-100 mt-3" %>
+      <%= link_to "Edit", edit_gear_path(@gear), class: "btn btn_primary btn-block w-100 mt-3" %>
+      <%= button_to "Remove the gear", @gear, class: "btn btn_secondary btn-block w-100 mt-2", method: :delete if policy(@gear).destroy? %>
     </div>
 
     <p class="mt-3 mb-2"><strong>Category:</strong> <%= @gear.category %></p>

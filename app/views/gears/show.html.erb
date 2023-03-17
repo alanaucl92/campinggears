@@ -5,29 +5,29 @@
 <% end %>
 
 
-<p style="color: green"><%= notice %></p>
-
 <div class="row m-5", id="gear_card">
-  <%= cl_image_tag @gear.photo.key, class:"col-6", height: 300, width: 500 %>
+  <div style="height: 350px; width: 500px;">
+    <%= cl_image_tag @gear.photo.key, class:"col-6", id:"gear_photo"%>
+  </div>
   <div class="mx-3 col-5">
     <h5><strong> <%= @gear.brand %> </strong></h5>
     <h3><strong> <%= @gear.name %> </strong></h3>
     <h6><strong> $<%= @gear.price %> per day </strong></h6>
 
-    <% if @gear.user != current_user%>
-    <div >
+    <%  if @gear.user != current_user%>
       <%= simple_form_for [@gear, @reservation], data: { controller: 'flatpickr' } do |f|%>
-        <%= f.input :reserve_from, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-        <%= f.input :reserve_to, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-        <%= f.submit "Reserve Now", class: "btn btn-primary btn-block w-100 mt-3" %>
+        <div class="d-flex">
+          <%= f.input :reserve_from, as: :string, label: "Start Date", input_html: { data: { flatpickr_target: "startTime" } } %>
+          <span class="mx-2"></span>
+          <%= f.input :reserve_to, as: :string, label: "End Date", input_html: { data: { flatpickr_target: "endTime" } } %>
+        </div>
+        <%= f.submit "Reserve Now", class: "btn btn_primary btn-block w-100 mt-3" %>
       <% end %>
-    </div>
     <% end %>
 
     <div>
-      <%# <%= link_to "Reserve Now", new_gear_reservation_path(@gear), class: "btn btn-primary btn-block w-100 mt-3" if @gear.user != current_user %>
-      <%= link_to "Edit", edit_gear_path(@gear), class: "btn btn-primary btn-block w-100 mt-3" if policy(@gear).edit? %>
-      <%= button_to "Remove", @gear, class: "btn btn-secondary btn-block w-100 mt-2", method: :delete if policy(@gear).destroy? %>
+      <%= link_to "Edit", edit_gear_path(@gear), class: "btn btn_primary btn-block w-100 mt-3" if policy(@gear).edit? %>
+      <%= button_to "Remove", @gear, class: "btn btn_secondary btn-block w-100 mt-2", method: :delete if policy(@gear).destroy? %>
     </div>
 
     <p class="mt-3 mb-2"><strong>Category:</strong> <%= @gear.category %></p>
