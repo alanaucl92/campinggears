@@ -1,3 +1,10 @@
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+
 <div class="row m-5", id="gear_card">
   <div style="height: 350px; width: 500px;">
     <%= cl_image_tag @gear.photo.key, class:"col-6", id:"gear_photo"%>
@@ -29,5 +36,11 @@
       <strong>Description:</strong>
       <%= @gear.description %>
     </p>
+
+    <% @gear.reviews.each do |review|%>
+      <%= review.rating%>
+      <%= review.comment%>
+    <% end %>
+
   </div>
 </div>
