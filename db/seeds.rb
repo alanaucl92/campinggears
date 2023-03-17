@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
-User.destroy_all
 Gear.destroy_all
+User.destroy_all
+
 seeduser = User.create!(email: "alanaucl@gmail.com", password: "123123")
 seeduser2 = User.create!(email: "mandy@gmail.com", password: "123123")
 file = URI.open("https://www.rei.com/media/2f9c8c47-299b-4a4c-aa05-b10fbf303691.jpg")
