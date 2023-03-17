@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
     @reservations = policy_scope(Reservation)
     # @reservations = Reservation.where(user: current_user)
     # @reservations = Reservation.where(user: current_user).page params[:page]
-    @reservations = @reservations.page params[:page]
+    @reservations = @reservations.where(user: current_user).page params[:page]
   end
 
   def mygear
