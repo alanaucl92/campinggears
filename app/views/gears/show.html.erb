@@ -37,10 +37,13 @@
       <%= @gear.description %>
     </p>
 
-    <% @gear.reviews.each do |review|%>
-      <%= review.rating%>
-      <%= review.comment%>
-    <% end %>
+     <p class="my-0">
+        <strong>Review:</strong>
+        <% @gear.reviews.each do |review|%>
+        <%= review.rating%>
+        <%= review.comment%>
+        <% end %>
+      </p>
 
   </div>
 </div>
