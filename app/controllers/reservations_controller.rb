@@ -11,7 +11,7 @@ class ReservationsController < ApplicationController
     # @reservations  = Reservation.all
     @reservations = Reservation.joins(:gear).where(gear: {user: current_user})
     authorize Reservation
-    @reservations = Reservation.page params[:page]
+    @reservations = Reservation.joins(:gear).where(gear: {user: current_user}).page params[:page]
     # skip_authorization
   end
 
