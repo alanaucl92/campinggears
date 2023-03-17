@@ -57,6 +57,7 @@
   --bs-btn-border-color: none !important;
   --bs-btn-bg:$button-black !important;
   color:white;
+  border-radius: 10px;
 }
 
 .btn_primary:hover, .btn_primary:active, .btn_primary:visited {
@@ -71,6 +72,7 @@
   background-color: white !important;
   border-color: black !important;
   color: black;
+  border-radius: 10px;
   // --bs-btn-border-color: black !important;
   // --bs-btn-bg:white !important;
 }
