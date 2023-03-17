@@ -1,18 +1,18 @@
 class GearsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @gears = policy_scope(Gear)
     # skip_authorization
     if params[:query].present?
       # @gears = Gear.where(name: params[:query])
-      @gears = Gear.where("name ILIKE ?", "%#{params[:query]}%")
+      # @gears = Gear.where(name: "Copper Spur HV UL2 Tent")
+      @gears = Gear.where("name ILIKE ?", "%#{params[:query]}%").page params[:page]
     else
-      @gears = Gear.all
+      @gears = Gear.all.page params[:page]
     end
-
-
     @reservations = Reservation.all
-    @gears = Gear.page params[:page]
+    # @gears = Gear.page params[:page]
   end
 
   def new

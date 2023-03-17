@@ -4,15 +4,17 @@ class ReservationsController < ApplicationController
   def index
     @reservations = policy_scope(Reservation)
     # @reservations = Reservation.where(user: current_user)
-    @reservations = Reservation.where(user: current_user).page params[:page]
+    # @reservations = Reservation.where(user: current_user).page params[:page]
+    @reservations = @reservations.page params[:page]
   end
 
   def mygear
     # @reservations  = Reservation.all
-    @reservations = Reservation.joins(:gear).where(gear: {user: current_user})
-    authorize Reservation
-    @reservations = Reservation.joins(:gear).where(gear: {user: current_user}).page params[:page]
-    # skip_authorization
+    # @reservations = policy_scope(Reservation)
+    @reservations = Reservation.all.joins(:gear).where(gear: {user: current_user})
+    # authorize Reservation
+    skip_authorization
+    @reservations = @reservations.page params[:page]
   end
 
   def create

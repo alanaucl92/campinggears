@@ -60,7 +60,7 @@
   border-radius: 10px;
 }
 
-.btn_primary:hover, .btn_primary:active, .btn_primary:visited {
+.btn_primary:hover, .btn_primary:active {
   background-color: black !important;
   border-color: none !important;
   --bs-btn-border-color: none !important;
@@ -77,7 +77,7 @@
   // --bs-btn-bg:white !important;
 }
 
-.btn_secondary:hover, .btn_secondary:active, .btn_secondary:visited {
+.btn_secondary:hover, .btn_secondary:active {
   background-color: black !important;
   border-color: none !important;
   color:white;
