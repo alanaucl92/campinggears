@@ -1,7 +1,15 @@
 class GearsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @gears = policy_scope(Gear)
+    # skip_authorization
+    if params[:query].present?
+      # @gears = Gear.where(name: params[:query])
+      @gears = Gear.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @gears = Gear.all
+    end
+
 
     @reservations= Reservation.all
   end
@@ -59,8 +67,17 @@ class GearsController < ApplicationController
   def destroy
     @gear = Gear.find(params[:id])
     authorize @gear
-    @gear.destroy
-    redirect_to gears_path, status: :see_other
+    # @gear.destroy
+
+    begin
+      @gear.destroy
+      flash[:success] = "Gear deleted successfully"
+      redirect_to gears_path
+    rescue ActiveRecord::RecordNotDestroyed => e
+      flash[:error] = e.message
+      redirect_to gears_path, status: :see_other
+    end
+    # redirect_to gears_path, status: :see_other
   end
 
   def myitems

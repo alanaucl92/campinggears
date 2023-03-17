@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = policy_scope(Reservation)
+    @reservations = Reservation.where(user: current_user)
   end
 
   def mygear
@@ -21,7 +22,7 @@ class ReservationsController < ApplicationController
       @reservation.total_price = (@reservation.reserve_to - @reservation.reserve_from) * @reservation.gear.price
     end
 
-    @reservation.reserve_status = "Reserved"
+    @reservation.reserve_status = "Pending"
     @reservation.payment_status = "Outstanding"
     authorize @reservation
     if @reservation.save!
@@ -50,7 +51,13 @@ class ReservationsController < ApplicationController
     redirect_to reservations_path
   end
 
-
+  def confirm
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+    @reservation.reserve_status = "Reserved"
+    @reservation.save
+    redirect_to reservations_mygear_path
+  end
 
   private
   def set_gear

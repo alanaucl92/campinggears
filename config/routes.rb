@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
   get 'reservations/new'
   get 'gears/new'
   devise_for :users
@@ -9,10 +10,14 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "reservations/mygear", to: "reservations#mygear"
   get "gears/myitems", to: "gears#myitems"
+  get '/reservations/:id/confirm', to: 'reservations#confirm', as: 'confirm_reservation'
+
+
   resources :gears, only: [:index, :create, :new, :show, :edit, :update, :destroy] do
     resources :reservations, only: [:create, :new]
   end
 
-  resources :reservations, only: [:index, :edit, :update]
-
+  resources :reservations, only: [:index, :edit, :update] do
+    resources :reviews, only: [:create, :new, :index]
+  end
 end

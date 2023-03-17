@@ -1,3 +1,10 @@
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+
 <p style="color: green"><%= notice %></p>
 
 <div class="row m-5", id="gear_card">
@@ -7,7 +14,7 @@
     <h3><strong> <%= @gear.name %> </strong></h3>
     <h6><strong> $<%= @gear.price %> per day </strong></h6>
 
-    <%  if @gear.user != current_user%>
+    <% if @gear.user != current_user%>
     <div >
       <%= simple_form_for [@gear, @reservation], data: { controller: 'flatpickr' } do |f|%>
         <%= f.input :reserve_from, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
@@ -29,5 +36,11 @@
       <strong>Description:</strong>
       <%= @gear.description %>
     </p>
+
+    <% @gear.reviews.each do |review|%>
+      <%= review.rating%>
+      <%= review.comment%>
+    <% end %>
+
   </div>
 </div>

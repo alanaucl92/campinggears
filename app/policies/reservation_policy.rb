@@ -21,4 +21,8 @@ class ReservationPolicy < ApplicationPolicy
     true
   end
 
+  def confirm?
+    true
+  end
+
 end

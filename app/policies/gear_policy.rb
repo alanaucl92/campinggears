@@ -5,7 +5,15 @@ class GearPolicy < ApplicationPolicy
     #   scope.all
     # end
     def resolve
+
       scope.all
+
+      # if params[:query].present?
+      #   scope.where(name: params[:query])
+      #   # @movies = Movie.where(title: params[:query])
+      # else
+      #   scope.all
+      # end
     end
   end
 

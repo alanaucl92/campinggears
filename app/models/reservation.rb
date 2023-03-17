@@ -1,9 +1,10 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :gear
+  has_many :reviews
   validates :reserve_from, presence: true, comparison: { less_than: :reserve_to}
   validates :reserve_to, presence: true
-  validates :reserve_status, presence: true, inclusion: { in: %w(Reserved Cancelled) }
+  validates :reserve_status, presence: true, inclusion: { in: %w(Pending Reserved Cancelled) }
   validates :payment_status, presence: true, inclusion: { in: %w(Outstanding Paid) }
   validate :date_cannot_be_in_the_past
 

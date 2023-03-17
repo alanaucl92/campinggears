@@ -26,8 +26,10 @@
         </p>
       </div>
       <% if reservation.reserve_status == "Reserved" %>
-        <%= link_to "Edit this reservation", edit_reservation_path(reservation), class: "btn btn-primary float-end" %>
+        <%= link_to "Edit this reservation", edit_reservation_path(reservation), class: "btn btn-primary float-end" if policy(reservation).update? %>
       <% end %>
+      <%= link_to "Add a Review", new_reservation_review_path(reservation), class: "btn btn-primary btn-block w-100 mt-3" if reservation.user == current_user%>
+      <%= link_to "Confirm Reservation", confirm_reservation_path(reservation), method: :patch, class: "btn btn-primary btn-block btn-success" if reservation.gear.user == current_user && reservation.reserve_status == "Pending" %>
     </div>
   </div>
   <% end %>
